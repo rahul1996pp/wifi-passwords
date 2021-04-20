@@ -1,9 +1,9 @@
-import subprocess
+from subprocess import check_output
 
 
 def wifi_name():
     command_show_wifi = "netsh wlan show profile"
-    network_command = subprocess.check_output(command_show_wifi, shell=True, text=True)
+    network_command = check_output(command_show_wifi, shell=True, text=True)
     profile_data = network_command.split("\n")
     for profile in profile_data:
         if "All User Profile" in profile:
@@ -13,7 +13,7 @@ def wifi_name():
 
 def wifi_password(name):
     command_show_wifi_pass = r'netsh wlan show profile' + ' "' + name + '" ' + 'key=clear'
-    password_command = subprocess.check_output(command_show_wifi_pass, shell=True, text=True)
+    password_command = check_output(command_show_wifi_pass, shell=True, text=True)
     password_data = password_command.split("\n")
     for password in password_data:
         if "Authentication         : Open" in password:
