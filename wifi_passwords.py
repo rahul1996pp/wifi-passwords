@@ -36,9 +36,9 @@ def main():
 
 def write_to_file(out_table):
     print("[+] Writing to a file.....")
-    with open("wifi passwords.txt", "a") as wipa:
-        wipa.write(credit_text)
-        wipa.write('\n'+out_table)
+    with open("wifi passwords.txt", "a") as wifi:
+        wifi.write(credit_text)
+        wifi.write('\n'+out_table)
 
 
 def credit():
